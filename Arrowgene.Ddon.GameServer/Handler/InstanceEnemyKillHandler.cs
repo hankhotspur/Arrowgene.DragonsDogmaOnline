@@ -108,6 +108,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 {
                     bool isAreaBoss = group.Any(x => x.IsAreaBoss);
                     bool isDungeon = StageManager.IsDungeon(stageId);
+                    bool isRegionalDungeon = StageManager.IsRegionalDungeon(stageId);
                     bool isCautionSpot = Server.ScriptManager.MonsterCautionSpotModule.IsEnabledCautionSpotGroup(Server, client.Party, stageId, client.Character.AreaId);
 
                     if (isQuestControlled)
@@ -131,6 +132,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
                             var ntcs = BitterblackMazeManager.HandleTierClear(_gameServer, memberClient, memberClient.Character, stageId, connectionIn);
                             queuedPackets.AddRange(ntcs);
                         }
+
+						// Daily mission hook
+						queuedPackets.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.ClearHardDungeon, connectionIn: connectionIn));
                     }
                     else if (isAreaBoss && isDungeon && client.GameMode == GameMode.Normal)
                     {
@@ -139,6 +143,15 @@ namespace Arrowgene.Ddon.GameServer.Handler
                         {
                             LayoutId = boss.StageLayoutId.ToCDataStageLayoutId(),
                         }, queuedPackets);
+
+						// Daily mission hook
+						if (isRegionalDungeon)
+						{
+							foreach (var memberClient in client.Party.Clients)
+							{
+								queuedPackets.AddRange(Server.DailyMissionManager.ProgressMissions(memberClient, DailyMissionObjective.ClearDungeon, connectionIn: connectionIn));
+							}
+						}
                     }
 
                     if (isAreaBoss && client.GameMode == GameMode.Normal)

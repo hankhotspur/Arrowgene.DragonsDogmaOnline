@@ -31,7 +31,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
             {
                 if (Server.Database.HasPartnerPawnLastAffectionIncreaseRecord(client.Character.CharacterId, client.Character.PartnerPawnId, PartnerPawnAffectionAction.Gift, connection))
                 {
-                    throw new ResponseErrorException(ErrorCode.ERROR_CODE_PAWN_ALREADY_GIFTED);               
+                    throw new ResponseErrorException(ErrorCode.ERROR_CODE_PAWN_ALREADY_GIFTED);
                 }
 
                 foreach (var item in request.ItemUIDList)
@@ -45,6 +45,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
                     itemUpdateResults.Add(itemUpdate);
                     packets.AddRange(Server.PartnerPawnManager.UpdateLikabilityIncreaseAction(client, PartnerPawnAffectionAction.Gift, connection));
                 }
+
+                // Daily mission hook
+                packets.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Other, connectionIn: connection));
 
                 partnerPawnData = Server.PartnerPawnManager.GetCDataPartnerPawnData(client, connection);
             });

@@ -1,6 +1,7 @@
 #nullable enable
 using Arrowgene.Ddon.GameServer.Characters;
 using Arrowgene.Ddon.Server;
+using Arrowgene.Ddon.Server.Network;
 using Arrowgene.Ddon.Shared.Entity.PacketStructure;
 using Arrowgene.Ddon.Shared.Entity.Structure;
 using Arrowgene.Ddon.Shared.Model;
@@ -92,6 +93,14 @@ namespace Arrowgene.Ddon.GameServer.Handler
                             ?? throw new ResponseErrorException(ErrorCode.ERROR_CODE_SHOP_LACK_MONEY)
                     };
                     itemNtc.UpdateItemList = itemUpdateResults;
+
+                    // Daily mission hook
+					if (shop.WalletType == WalletType.AdventurePassPoints)
+					{
+						PacketQueue packets = new();
+						packets.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Other, connectionIn: connection));
+						packets.Send();
+					}
                 }
             });
 

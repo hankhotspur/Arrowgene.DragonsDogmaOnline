@@ -98,6 +98,7 @@ namespace Arrowgene.Ddon.GameServer
             BitterblackMazeManager = new BitterblackMazeManager(this);
             WorldQuestManager = new WorldQuestManager(this);
             GroupChatManager = new GroupChatManager(this);
+            DailyMissionManager = new DailyMissionManager(this);
 
             S2CStageGetStageListRes stageListPacket =
                 EntitySerializer.Get<S2CStageGetStageListRes>().Read(GameDump.data_Dump_19);
@@ -147,6 +148,7 @@ namespace Arrowgene.Ddon.GameServer
         public ChatLogHandler ChatLogHandler { get; }
         public LightQuestManager LightQuestManager { get; }
         public GroupChatManager GroupChatManager { get; }
+        public DailyMissionManager DailyMissionManager { get; }
 
         public List<CDataStageInfo> StageList { get; }
 
@@ -400,6 +402,8 @@ namespace Arrowgene.Ddon.GameServer
             AddHandler(new CraftStartDetachElementHandler(this));
 
             AddHandler(new DailyMissionListGetHandler(this));
+            AddHandler(new DailyMissionEventListGetHandler(this));
+            AddHandler(new DailyMissionRewardReceiveHandler(this));
             AddHandler(new DispelGetDispelItemSettingsHandler(this));
             AddHandler(new DispelGetDispelItemListHandler(this));
             AddHandler(new DispelExchangeDispelItemHandler(this));

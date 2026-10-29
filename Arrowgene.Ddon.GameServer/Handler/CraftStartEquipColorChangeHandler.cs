@@ -151,6 +151,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 Server.Database.UpdatePawnBaseInfo(leadPawn, connection);
 
                 queue.AddRange(Server.AchievementManager.HandleChangeColor(client, connection));
+
+                // Daily mission hook
+                queue.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Craft, connectionIn: connection));
             });
 
             return queue;

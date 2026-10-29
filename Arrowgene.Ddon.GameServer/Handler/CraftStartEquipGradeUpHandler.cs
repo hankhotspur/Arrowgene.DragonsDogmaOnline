@@ -124,8 +124,8 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 uint[] thresholds = { 350, 700, 1000, 1500, 800 };
 
                 // Determine the required points based on the current star level
-                uint requiredPoints = currentStars >= 0 && currentStars < thresholds.Length 
-                    ? thresholds[currentStars] 
+                uint requiredPoints = currentStars >= 0 && currentStars < thresholds.Length
+                    ? thresholds[currentStars]
                     : throw new InvalidOperationException("Invalid star level");
 
                 if (recipeData.AllowMultiGrade)
@@ -236,6 +236,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 }
 
                 Server.Database.UpdatePawnBaseInfo(leadPawn, connection);
+
+                // Daily mission hook
+                queue.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Craft, connectionIn: connection));
             });
 
             client.Enqueue(updateCharacterItemNtc, queue);

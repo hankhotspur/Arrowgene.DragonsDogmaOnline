@@ -11,11 +11,15 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using Arrowgene.Ddon.Shared.Asset;
+using Arrowgene.Ddon.Shared.Model;
 
 namespace Arrowgene.Ddon.GameServer.Handler
 {
     public class QuestQuestProgressHandler : GameRequestPacketQueueHandler<C2SQuestQuestProgressReq, S2CQuestQuestProgressRes>
     {
+        private const uint DailyMissionObjectiveClearQuest = 1;
+
         private static readonly ServerLogger Logger = LogProvider.Logger<ServerLogger>(typeof(QuestQuestProgressHandler));
 
         public QuestQuestProgressHandler(DdonGameServer server) : base(server)
@@ -282,10 +286,10 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
                 client.Party.EnqueueToAll(completeNtc, packets);
                 packets.AddRange(client.Party.QuestState.UpdatePriorityQuestList(client.Party.Leader.Client, connectionIn));
-                foreach(var memberClient in completionClients)
-                {
-                    packets.AddRange(Server.AchievementManager.HandleClearQuest(memberClient, quest, connectionIn));
-                }
+				foreach (var memberClient in completionClients)
+				{
+					packets.AddRange(Server.AchievementManager.HandleClearQuest(memberClient, quest, connectionIn));
+				}
             }
 
             if (quest.QuestType == QuestType.ExtremeMission)
@@ -306,6 +310,21 @@ namespace Arrowgene.Ddon.GameServer.Handler
                     packets.AddRange(Server.CharacterManager.UpdateCharacterExtendedParamsNtc(memberClient, memberClient.Character));
                 }
             }
+
+            // Daily mission hook
+			foreach (var memberClient in client.Party.Clients)
+			{
+				// TODO: Chain dungeons should count for dungeons/hard dungeons instead of battle content
+				if (quest.QuestType == QuestType.ExtremeMission || quest.QuestType == QuestType.WildHunt || quest.QuestType == QuestType.CycleContentsQuest)
+				{
+					packets.AddRange(Server.DailyMissionManager.ProgressMissions(memberClient, DailyMissionObjective.ClearBattleContent, connectionIn: connectionIn));
+				}
+				// TODO: Add pawn quests whenever whey are implemented
+				else if (quest.QuestType == QuestType.Board || quest.QuestType == QuestType.World || quest.QuestType == QuestType.Tutorial)
+				{
+					packets.AddRange(Server.DailyMissionManager.ProgressMissions(memberClient, DailyMissionObjective.ClearQuest, connectionIn: connectionIn));
+				}
+			}
 
             return packets;
         }

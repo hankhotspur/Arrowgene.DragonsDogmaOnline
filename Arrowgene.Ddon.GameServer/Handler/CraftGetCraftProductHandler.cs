@@ -103,6 +103,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
                 var itemInfo = Server.AssetRepository.ClientItemInfos[craftProgress.ItemId];
                 queue.AddRange(Server.AchievementManager.HandleCraft(client, itemInfo, connection));
+
+                // Daily mission hook
+                queue.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Craft, connectionIn: connection));
             });
 
             queue.Send();

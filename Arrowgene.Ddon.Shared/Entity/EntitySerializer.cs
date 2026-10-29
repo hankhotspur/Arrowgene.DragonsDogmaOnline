@@ -157,6 +157,14 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new CDataCycleContentsRank.Serializer());
             Create(new CDataCycleContentsUnk.Serializer());
 
+            Create(new CDataDailyMission.Serializer());
+            Create(new CDataDailyMissionDetail.Serializer());
+            Create(new CDataDailyMissionReward.Serializer());
+            Create(new CDataDailyMissionUnk1.Serializer());
+            Create(new CDataDailyMissionUnk2.Serializer());
+            Create(new CDataDailyMissionUnk3.Serializer());
+            Create(new CDataDailyMissionUnk4.Serializer());
+
             Create(new CDataDeliveredItem.Serializer());
             Create(new CDataDeliveredItemRecord.Serializer());
             Create(new CDataDeliveryItem.Serializer());
@@ -684,6 +692,14 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new C2SCraftStartEquipGradeUpReq.Serializer());
             Create(new C2SCraftStartQualityUpReq.Serializer());
             Create(new C2SCraftTimeSaveReq.Serializer());
+
+            Create(new C2SDailyMissionListGetReq.Serializer());
+            Create(new C2SDailyMissionEventListGetReq.Serializer());
+            Create(new S2CDailyMissionRewardAvailableNtc.Serializer());
+            Create(new S2CDailyMissionRewardReceiveRes.Serializer());
+            Create(new C2SDailyMissionRewardReceiveReq.Serializer());
+            Create(new S2CDailyMissionListGetRes.Serializer());
+            Create(new S2CDailyMissionEventListGetRes.Serializer());
 
             Create(new C2SDispelExchangeDispelItemReq.Serializer());
             Create(new C2SDispelGetDispelItemListReq.Serializer());

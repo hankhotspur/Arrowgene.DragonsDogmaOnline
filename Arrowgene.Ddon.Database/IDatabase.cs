@@ -639,4 +639,9 @@ public interface IDatabase
     bool InsertDispelSeal(uint characterId, uint sealIndex, DbConnection? connectionIn = null);
     bool DeleteDispelSeal(uint characterId, uint sealIndex, DbConnection? connectionIn = null);
 
+    // Reward missions
+    Dictionary<uint, DailyMissionProgress> SelectRewardMissionProgress(uint characterId, DbConnection? connectionIn = null);
+    bool UpsertRewardMissionProgress(uint characterId, DailyMissionProgress progress, DbConnection? connectionIn = null);
+    int DeleteRewardMissionProgress(IReadOnlyCollection<uint> missionIds, DbConnection? connectionIn = null);
+
 }

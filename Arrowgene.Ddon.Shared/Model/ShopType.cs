@@ -37,6 +37,8 @@ namespace Arrowgene.Ddon.Shared.Model
         MedalExchangeMorrowForest = 22,
         MedalExchangeKingalCanyon = 23,
 
+        RewardMedalExchange = 25,
+
         ExtremeMission = 27,
     }
 }

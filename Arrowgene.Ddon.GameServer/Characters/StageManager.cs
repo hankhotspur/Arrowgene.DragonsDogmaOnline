@@ -316,9 +316,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
         {
             Stage.Lestania,
             Stage.BloodbaneIsle0,
-            Stage.BloodbaneIsle1,
             Stage.FaranaPlains0,
-            Stage.FaranaPlains1,
             Stage.ElanWaterGrove,
             Stage.KingalCanyon,
             Stage.MorrowForest,
@@ -340,6 +338,56 @@ namespace Arrowgene.Ddon.GameServer.Characters
         public static bool IsDungeon(StageLayoutId stageId)
         {
             return IsDungeon(stageId.Id);
+        }
+
+		// List of dungeons with regional materials for daily missions
+        private static readonly HashSet<uint> RegionalDungeons = new HashSet<StageInfo>()
+        {
+            Stage.FrigidAncientPassage,
+            Stage.PicturesqueGrotto,
+            Stage.CesspoolofFilth,
+            Stage.CryptofMurmurs,
+            Stage.DriedWellbytheTower,
+            Stage.InfectedDenDepths,
+            Stage.TheTunnelacrosstheBridge,
+            Stage.WaterfallEchoCavern,
+            Stage.FungalColonyCaves,
+            Stage.DancingRainbowCave,
+            Stage.WisteriaArborWitheringWell,
+            Stage.JungleLimestoneCaves,
+            Stage.OldFerrymansHaunt,
+            Stage.ElanQuarryCave,
+            Stage.FaranaRuins,
+            Stage.MagusasAncientWatercourse,
+            Stage.SacredRiverRuins,
+            Stage.InvadingDemonsCave,
+            Stage.SauzanelInfectedWoods,
+            Stage.DeepneyGreatForest,
+            Stage.NorthernersInfectedWoods,
+            Stage.GrinmelRuins,
+            Stage.AmburosGreatRuins,
+            Stage.AncientUndergroundShrine,
+            Stage.CaveofHellsDescentInnerDepths,
+            Stage.RathniteUndergroundWaterway,
+            Stage.YimidhittRuins,
+            Stage.RathniteColumbarium,
+            Stage.ShrineoftheEternalBlaze,
+            Stage.FalseRemains,
+            Stage.ThunderingRoarCave,
+            Stage.QuietConcealedCave,
+            Stage.MegadoWaterSupplyNetwork,
+            Stage.MegadoCathedral,
+            Stage.CaveofRest
+        }.Select(x => x.StageId).ToHashSet();
+
+        public static bool IsRegionalDungeon(uint stageId)
+        {
+            return RegionalDungeons.Contains(stageId);
+        }
+
+        public static bool IsRegionalDungeon(StageLayoutId stageId)
+        {
+            return IsRegionalDungeon(stageId.Id);
         }
     }
 }

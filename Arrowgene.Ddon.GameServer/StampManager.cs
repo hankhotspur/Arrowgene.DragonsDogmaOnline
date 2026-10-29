@@ -1,6 +1,7 @@
 using Arrowgene.Ddon.GameServer.Characters;
 using Arrowgene.Ddon.Server;
 using Arrowgene.Ddon.Server.Network;
+using Arrowgene.Ddon.Shared;
 using Arrowgene.Ddon.Shared.Entity.PacketStructure;
 using Arrowgene.Ddon.Shared.Entity.Structure;
 using Arrowgene.Ddon.Shared.Model;
@@ -59,7 +60,7 @@ namespace Arrowgene.Ddon.GameServer
         }
 
         public bool CanTotalStamp(CharacterStampBonus stampData)
-        { 
+        {
             return CanDailyStamp(stampData) && GetTotalStampAssets().Where(x => x.StampNum == (stampData.TotalStamp + 1)).Any();
         }
 
@@ -78,7 +79,7 @@ namespace Arrowgene.Ddon.GameServer
                     {
                         ntc.UpdateWalletList.Add(Server.WalletManager.AddToWallet(client.Character, (WalletType)bonus.BonusType, bonus.BonusValue));
                     }
-                    else 
+                    else
                     {
                         var (bonusQueue, isSpecial) = Server.ItemManager.HandleSpecialItem(client, ntc, (ItemId)bonus.BonusType, bonus.BonusValue, SpecialItemMode.OnAcquire);
                         if (isSpecial)
@@ -97,6 +98,10 @@ namespace Arrowgene.Ddon.GameServer
             {
                 client.Send(ntc);
             }
+
+            // Daily mission hook
+            queue.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Other));
+
             queue.Send();
         }
 

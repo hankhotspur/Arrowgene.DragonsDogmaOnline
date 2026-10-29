@@ -79,7 +79,7 @@ namespace Arrowgene.Ddon.Shared.Model
         EmblemStatUpdate = 0x4a,
         GatherEquipItem = 0x4b,
         // 0x4c Item Obtained
-        // 0x4d Item Obtained
+        RewardMission = 0x4d,
         // 0x4e Item Obtained
         // 0x4f Item Obtained
         Debug = 0x64,

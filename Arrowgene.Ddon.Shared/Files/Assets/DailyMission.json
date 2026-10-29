@@ -1,0 +1,489 @@
+{
+	"comment": [
+        "This file handles all reward mission types: regular, special, event.",
+        "New entries can be added freely, but objective lists are fixed.",
+        "Daily and weekly reset periods are supported at the moment.",
+        "Icon size: 128x128px, banner size: 400x225px."
+    ],
+	"daily_missions": [
+		{
+			"title": "[Daily] Clear quests",
+			"reset_period": "daily",
+			"mission_id": 1,
+			"objective": 1,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_1.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_1.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 1
+				}
+			],
+			"sort_no": 1
+		},
+		{
+			"title": "[Daily] Clear quests",
+			"reset_period": "daily",
+			"mission_id": 2,
+			"objective": 1,
+			"goal": 3,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_1.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_1.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 1
+				}
+			],
+			"sort_no": 1
+		},
+		{
+			"title": "[Daily] Clear quests",
+			"reset_period": "daily",
+			"mission_id": 3,
+			"objective": 1,
+			"goal": 5,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_1.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_1.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 3
+				}
+			],
+			"sort_no": 1
+		},
+		{
+			"title": "[Daily] Clear dungeons",
+			"reset_period": "daily",
+			"mission_id": 4,
+			"objective": 2,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_2.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_2.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 1
+				}
+			],
+			"sort_no": 2
+		},
+		{
+			"title": "[Weekly] Clear hard dungeons",
+			"reset_period": "weekly",
+			"mission_id": 7,
+			"objective": 3,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_3.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_3.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 3
+				}
+			],
+			"sort_no": 3
+		},
+		{
+			"title": "[Weekly] Clear hard dungeons",
+			"reset_period": "weekly",
+			"mission_id": 8,
+			"objective": 3,
+			"goal": 3,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_3.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_3.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 5
+				}
+			],
+			"sort_no": 3
+		},
+		{
+			"title": "[Weekly] Clear hard dungeons",
+			"reset_period": "weekly",
+			"mission_id": 9,
+			"objective": 3,
+			"goal": 5,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_3.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_3.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 7
+				}
+			],
+			"sort_no": 3
+		},
+		{
+			"title": "[Weekly] Clear battle content",
+			"reset_period": "weekly",
+			"mission_id": 10,
+			"objective": 4,
+			"goal": 3,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_4.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_2.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Custom-made Service Ticket",
+					"item_id": 12,
+					"amount": 1
+				}
+			],
+			"sort_no": 4
+		},
+		{
+			"title": "[Weekly] Clear battle content",
+			"reset_period": "weekly",
+			"mission_id": 11,
+			"objective": 4,
+			"goal": 5,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_4.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_2.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Custom-made Service Ticket",
+					"item_id": 12,
+					"amount": 1
+				}
+			],
+			"sort_no": 4
+		},
+		{
+			"title": "[Weekly] Clear battle content",
+			"reset_period": "weekly",
+			"mission_id": 12,
+			"objective": 4,
+			"goal": 7,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_4.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_banner_2.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Custom-made Service Ticket",
+					"item_id": 12,
+					"amount": 1
+				}
+			],
+			"sort_no": 4
+		},
+		{
+			"title": "[Daily] Clear other objectives",
+			"reset_period": "daily",
+			"mission_id": 16,
+			"objective": 5,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_5.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_5.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 1
+				}
+			],
+			"sort_no": 10
+		},
+		{
+			"title": "[Daily] Clear other objectives",
+			"reset_period": "daily",
+			"mission_id": 17,
+			"objective": 5,
+			"goal": 2,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_5.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_00003.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 1
+				}
+			],
+			"sort_no": 10
+		},
+		{
+			"title": "[Weekly] Craft items",
+			"reset_period": "weekly",
+			"mission_id": 19,
+			"objective": 6,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_6.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_6.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 1
+				}
+			],
+			"sort_no": 5
+		},
+		{
+			"title": "[Weekly] Craft items",
+			"reset_period": "weekly",
+			"mission_id": 20,
+			"objective": 6,
+			"goal": 2,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_6.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_6.jpg",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 1
+				}
+			],
+			"sort_no": 5
+		},
+		{
+			"title": "[Weekly] Craft items",
+			"reset_period": "weekly",
+			"mission_id": 21,
+			"objective": 6,
+			"goal": 3,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_6.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_6.jpg",
+			"wallet_reward": [
+				{
+					"comment": "Custom-made Service Ticket",
+					"item_id": 12,
+					"amount": 1
+				}
+			],
+			"sort_no": 5
+		}
+	],
+	"special_reward": [
+		{
+			"title": "[Daily] Complete <VAL> mission",
+			"reset_period": "daily",
+			"mission_id": 22,
+			"objective": 7,
+			"goal": 1,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_7.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 1
+				}
+			],
+			"sort_no": 998
+		},
+		{
+			"title": "[Daily] Complete <VAL> missions",
+			"reset_period": "daily",
+			"mission_id": 23,
+			"objective": 7,
+			"goal": 3,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_7.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 3
+				}
+			],
+			"sort_no": 998
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 24,
+			"objective": 8,
+			"goal": 5,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"wallet_reward": [
+				{
+					"comment": "Silver Ticket",
+					"item_id": 4,
+					"amount": 10
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 25,
+			"objective": 8,
+			"goal": 10,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"wallet_reward": [
+				{
+					"comment": "Custom-made Service Ticket",
+					"item_id": 12,
+					"amount": 5
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Daily] Complete <VAL> missions",
+			"reset_period": "daily",
+			"mission_id": 26,
+			"objective": 7,
+			"goal": 5,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_7.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 1
+				}
+			],
+			"sort_no": 998
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 28,
+			"objective": 8,
+			"goal": 15,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 3
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 29,
+			"objective": 8,
+			"goal": 20,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 5
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 30,
+			"objective": 8,
+			"goal": 25,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Play Point",
+					"item_id": 18832,
+					"amount": 3
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 31,
+			"objective": 8,
+			"goal": 30,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Bone Pearl",
+					"item_id": 17881,
+					"amount": 1
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 32,
+			"objective": 8,
+			"goal": 35,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 10
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 33,
+			"objective": 8,
+			"goal": 40,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Bone Pearl",
+					"item_id": 17881,
+					"amount": 1
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 34,
+			"objective": 8,
+			"goal": 45,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Reward Medal",
+					"item_id": 24727,
+					"amount": 20
+				}
+			],
+			"sort_no": 999
+		},
+		{
+			"title": "[Weekly] Complete <VAL> missions",
+			"reset_period": "weekly",
+			"mission_id": 35,
+			"objective": 8,
+			"goal": 50,
+			"icon_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_icon_8.png",
+			"image_url": "http://localhost:52099/sp_ingame/campaign/bnr/lotto/daily_image_7.png",
+			"item_reward": [
+				{
+					"comment": "Play Point",
+					"item_id": 18832,
+					"amount": 10
+				}
+			],
+			"sort_no": 999
+		}
+	],
+	"time_event": []
+}

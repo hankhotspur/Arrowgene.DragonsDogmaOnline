@@ -94,6 +94,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
                     Unk4 = 0,
                     Unk3 = 0,
                 });
+
+                // Daily mission hook
+                packets.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Craft, connectionIn: connection));
             });
 
             return packets;

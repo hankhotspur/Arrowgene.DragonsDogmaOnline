@@ -91,7 +91,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 if (request.AddStatusID != 0)
                 {
                     var param = equipItem.AddStatusParamList.Find(x => x.EnhanceType == EquipEnhanceType.AdditionalCraftMaterial);
-                    
+
                     if (param is null)
                     {
                         param = new CDataAddStatusParam()
@@ -137,8 +137,8 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 if (cost > 0)
                 {
                     CDataUpdateWalletPoint updateWalletPoint = Server.WalletManager.RemoveFromWallet(client.Character, WalletType.Gold, cost, connection)
-                        ?? throw new ResponseErrorException(ErrorCode.ERROR_CODE_CRAFT_INSUFFICIENT_GOLD, 
-                        $"Insufficient gold. {cost} > {Server.WalletManager.GetWalletAmount(client.Character, WalletType.Gold)}"); 
+                        ?? throw new ResponseErrorException(ErrorCode.ERROR_CODE_CRAFT_INSUFFICIENT_GOLD,
+                        $"Insufficient gold. {cost} > {Server.WalletManager.GetWalletAmount(client.Character, WalletType.Gold)}");
                     updateCharacterItemNtc.UpdateWalletList.Add(updateWalletPoint);
                 }
 
@@ -187,6 +187,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
                 client.Enqueue(updateCharacterItemNtc, queue);
                 client.Enqueue(res, queue);
+
+                // Daily mission hook
+                queue.AddRange(Server.DailyMissionManager.ProgressMissions(client, DailyMissionObjective.Craft, connectionIn: connection));
             });
 
             return queue;

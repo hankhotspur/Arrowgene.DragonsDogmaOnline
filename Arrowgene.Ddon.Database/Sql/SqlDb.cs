@@ -718,6 +718,10 @@ public abstract class SqlDb : IDatabase
     public abstract bool InsertDispelSeal(uint characterId, uint sealIndex, DbConnection? connectionIn = null);
     public abstract bool DeleteDispelSeal(uint characterId, uint sealIndex, DbConnection? connectionIn = null);
 
+    public abstract Dictionary<uint, DailyMissionProgress> SelectRewardMissionProgress(uint characterId, DbConnection? connectionIn = null);
+    public abstract bool UpsertRewardMissionProgress(uint characterId, DailyMissionProgress progress, DbConnection? connectionIn = null);
+    public abstract int DeleteRewardMissionProgress(IReadOnlyCollection<uint> missionIds, DbConnection? connectionIn = null);
+
 
     protected virtual DbCommand Command(string query, DbConnection connection)
     {
