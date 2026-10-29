@@ -44,7 +44,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
             var character = client.Character;
             Dictionary<uint, DailyMission> definitions = asset.DailyMissions.Concat(asset.SpecialRewards).ToDictionary(x => x.MissionId);
-            Dictionary<uint, DailyMissionProgress> stored = Server.Database.SelectRewardMissionProgress(character.CommonId);
+            Dictionary<uint, DailyMissionProgress> stored = Server.Database.SelectRewardMissionProgress(character.CharacterId);
 
             // Only missions whose reward is waiting (State 2) can be claimed.
             List<DailyMission> claimedMissions = new();
@@ -138,7 +138,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 foreach (DailyMissionProgress row in claimedRows)
                 {
                     row.State = DailyMissionState.RewardReceived;
-                    if (!Server.Database.UpsertRewardMissionProgress(character.CommonId, row, connection))
+                    if (!Server.Database.UpsertRewardMissionProgress(character.CharacterId, row, connection))
                     {
                         Logger.Error(client, $"Failed to mark daily mission {row.MissionId} as received.");
                     }
